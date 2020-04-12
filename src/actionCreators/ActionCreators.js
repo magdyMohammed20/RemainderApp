@@ -6,6 +6,6 @@ export const add_Remainder = (text,date)=>{
     text,
     date
   }
-
+  
   return action
 }
