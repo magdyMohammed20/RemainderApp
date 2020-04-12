@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {add_Remainder,remove_Remainder,clear_Remainder} from  './actionCreators/ActionCreators'
 import {connect} from 'react-redux'
 import moment from 'moment'
+import DatePicker from 'react-datepicker'
+import "react-datepicker/dist/react-datepicker.css";
 
 class App extends Component {
   state={
@@ -30,7 +32,7 @@ class App extends Component {
     
     return (
       <div className="App">
-        <div className='w-75 mx-auto text-center d-flex flex-column'>
+        <div className='w-50 mx-auto text-center d-flex flex-column'>
           <h2>Remainder Tasks</h2>
           <input 
             type='text' 
@@ -39,11 +41,20 @@ class App extends Component {
             placeholder='What Should You Do ...'
             onChange={(e)=> this.setState({text: e.target.value})}
           />
-          <input 
-            type='datetime-local' 
+
+          <DatePicker
             value={this.state.date}
             className='form-control my-3'
-            onChange={(e)=> this.setState({date: e.target.value})}  
+            selected={this.state.date}
+            onChange={date=>{
+              this.setState({
+                date
+              });
+            }}
+            showTimeSelect
+            timeCaption="Time"
+            dateFormat="MMMM d, yyyy h:mm aa"
+            timeFormat="HH:mm"
           />
 
           <ul className='list-unstyled'>
