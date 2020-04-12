@@ -26,7 +26,7 @@ class App extends Component {
             className='form-control my-3'
             onChange={(e)=> this.setState({date: e.target.value})}  
           />
-          <button className='btn btn-primary' onClick={()=> add_Remainder(this.state.text , this.state.date)}>Add Task</button>
+          <button className='btn btn-primary' onClick={()=> this.props.add_Remainder(this.state.text , this.state.date)}>Add Task</button>
           <button className='btn btn-danger mt-2'>Clear</button>
         </div>
       </div>
