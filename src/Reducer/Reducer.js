@@ -1,5 +1,5 @@
 
-import {addRemainder,removeRemainder} from '../actionTypes'
+import {addRemainder,removeRemainder, clearRemainders} from '../actionTypes'
 
 const remainder = (state=[] , action) => {
   let remainders = []
@@ -11,6 +11,9 @@ const remainder = (state=[] , action) => {
       return remainder.id !== action.id
     })
 
+    return remainders
+  }else if(action.type === clearRemainders){
+    remainders = []
     return remainders
   }
   
