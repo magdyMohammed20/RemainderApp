@@ -3,7 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {add_Remainder,remove_Remainder,clear_Remainder} from  './actionCreators/ActionCreators'
 import {connect} from 'react-redux'
-import remainder from './Reducer/Reducer';
+import moment from 'moment'
 
 class App extends Component {
   state={
@@ -19,7 +19,7 @@ class App extends Component {
         <li key={task.id} className='d-flex align-items-center justify-content-between alert alert-success text-left'>
           <div>
           <p className='m-0'>{task.text}</p>
-          <p className='m-0'>{task.date.toLocaleString()}</p>
+          <p className='m-0'>{moment(new Date(task.date)).fromNow()}</p>
           </div>
           <button className='btn btn-danger rounded-pill' style={{width: '40px',height: '40px'}} onClick={()=>this.props.remove_Remainder(task.id)}>X</button>
         </li>
