@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {add_Remainder} from  './actionCreators/ActionCreators'
+import {add_Remainder,remove_Remainder} from  './actionCreators/ActionCreators'
 import {connect} from 'react-redux'
 import remainder from './Reducer/Reducer';
 
@@ -16,9 +16,12 @@ class App extends Component {
 
     return remainders.map(task=>{
       return(
-        <li key={task.id} className='alert alert-success text-left'>
+        <li key={task.id} className='d-flex align-items-center justify-content-between alert alert-success text-left'>
+          <div>
           <p className='m-0'>{task.text}</p>
           <p className='m-0'>{task.date.toLocaleString()}</p>
+          </div>
+          <button className='btn btn-danger rounded-pill' style={{width: '40px',height: '40px'}} onClick={()=>this.props.remove_Remainder(task.id)}>X</button>
         </li>
       )
     })
@@ -69,4 +72,4 @@ function mapStateToProps(state){
   }
 }
 // You Can Pass {add_Remainder} Instead Of Using 'mapDispatchToProps'
-export default connect(mapStateToProps,{add_Remainder})(App);
+export default connect(mapStateToProps,{add_Remainder,remove_Remainder})(App);
