@@ -5,10 +5,10 @@ const remainder = (state=[] , action) => {
   let remainders = []
   if(action.type === addRemainder){
     remainders = [...state, {id: Math.random(),text: action.text,date: action.date}]    
-    
     return remainders
   }
   
+  return state
 }
 
 export default remainder
