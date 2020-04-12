@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {add_Remainder,remove_Remainder,clear_Remainder} from  './actionCreators/ActionCreators'
 import {connect} from 'react-redux'
@@ -32,7 +32,7 @@ class App extends Component {
     
     return (
       <div className="App">
-        <div className='w-50 mx-auto text-center d-flex flex-column'>
+        <div className='w-50 rounded bg-white p-5 mt-5 mx-auto text-center d-flex flex-column'>
           <h2>Remainder Tasks</h2>
           <input 
             type='text' 
